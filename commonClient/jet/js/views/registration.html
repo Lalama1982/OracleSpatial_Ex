@@ -1,0 +1,123 @@
+<!--
+Copyright (c) 2016, Oracle and/or its affiliates.
+All rights reserved.
+ -->
+<div class="oj-flex">
+    <div id="register" class="oj-md-10 oj-md-offset-1 oj-sm-10 oj-sm-offset-1">
+        <div class="page-header">
+            <h1>Become a member
+                <small><strong>FREE</strong> for 30 days</small>
+            </h1>
+        </div>
+        <div class="oj-form-layout">
+            <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+                <div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="name"
+                               placeholder="Jane Doe"
+                               data-bind="ojComponent: {component: 'ojInputText',
+                                          value:newMember().name, required: true,
+                                          validators: [{
+                                                        type: 'length',
+                                                        options: {max: 50}}]}">
+                    </div>
+                </div>
+                <div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="email"
+                               placeholder="jdoe@email.com"
+                               data-bind="ojComponent: {component: 'ojInputText',
+                                          value:newMember().email, required: true,
+                                          validators: [{
+                                                        type: 'length',
+                                                        options: {max: 100}}]}">
+                    </div>
+                </div>
+                <div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <label for="trilobitcoinNumber">Trilobitcoin Number</label>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="trilobitcoinNumber"
+                               placeholder="1234123412341234"
+                               data-bind="ojComponent: {component: 'ojInputNumber',
+                                          value:newMember().trilobitcoinNumber,
+                                          required: true,
+                                          validators: [{
+                                                        type: 'length',
+                                                        options: {max: 19}}],
+                                          converter: {
+                                                        type: 'number',
+                                                        options: {
+                                                          style:'decimal', roundingMode: 'HALF_DOWN',
+                                                          maximumFractionDigits: 0,
+                                                          useGrouping: false}}}">
+                    </div>
+                </div>
+                <div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <label for="species">Species</label>
+                    </div>
+                    <div class="oj-flex-item">
+                        <select id="species"
+                                placeholder="Select One"
+                                data-bind="ojComponent: {component: 'ojSelect',
+                                          options: species,
+                                          value: speciesKeysVal,
+                                          optionsKeys: {value : 'dinosaurId', label : 'speciesName'},
+                                          required: true,
+                                          placeholder: 'Select a species'}">
+                        </select>
+                    </div>
+                </div>
+                <div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <label for="locations">Location</label>
+                    </div>
+                    <div class="oj-flex-item">
+                        <select id="locations"
+                                placeholder="Select One"
+                                data-bind="ojComponent: {component: 'ojSelect',
+                                          options: locations,
+                                          value: locationKeysVal,
+                                          optionsKeys: {value : 'locationId', label : 'locationName'},
+                                          required: true,
+                                          placeholder: 'Select a location'}">
+                        </select>
+                    </div>
+                </div>
+                <div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <label for="aboutYourself">About Yourself</label>
+                    </div>
+                    <div class="oj-flex-item">
+                        <textarea id="aboutYourself"
+                                  placeholder="Tell us something interesting."
+                                  data-bind="ojComponent: {component: 'ojTextArea',
+                                          value:newMember().aboutYourself,
+                                          required: true,
+                                          validators: [{
+                                                        type: 'length',
+                                                        options: {max: 500}}]}">
+                        </textarea>
+                    </div>
+                </div>
+
+                <button id="register-btn"
+                        class="oj-button-primary"
+                        data-bind="click: registerMember,
+                      ojComponent: {
+                      component:'ojButton',
+                      label: 'Register',
+                      chroming: 'full'}">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
